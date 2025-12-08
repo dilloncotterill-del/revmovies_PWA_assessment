@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Lexend:400,700&display=swap");
+
+h1 {
+  background: #ed2939;
+  font-family: "Lexend", sans-serif;
+}
+
+body {
+  font-size: 15px;
+}
+
+.movie_table {
+  border: 5px;
+}

@@ -7,8 +7,13 @@ app.secret_key = "revmovies"
 
 @app.route("/")
 def Home():
+    return render_template("base.html")
+
+
+@app.route("/movie_list")
+def Movie_list():
     movieData = db.GetAllMovies()
-    return render_template("movies.html", movies=movieData)
+    return render_template("movie_list.html", movies=movieData)
 
 
 app.run(debug=True, port=5000)

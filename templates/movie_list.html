@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
+
+    <title>RevMovies</title>
+
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="manifest" href="static/manifest.json" />
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.png" />
+  </head>
+
+  {% block content %}
+  <h1>Rev Movies - Movie List</h1>
+
+  <body>
+    Here is where you can view the full list of movies that are available to
+    view and review!
+  </body>
+
+  <table class="movie_table">
+    <thead>
+      <th>movie_name</th>
+      <th>release_date</th>
+      <th>movie_description</th>
+      <th>genre</th>
+    </thead>
+
+    <tbody>
+      {%for movie in movies%}
+      <tr>
+        <td>{{ movie['movie_name']}}</td>
+        <td>{{ movie['release_date']}}</td>
+        <td>{{ movie['movie_description']}}</td>
+        <td>{{ movie['genre']}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% endblock %}
+</html>
