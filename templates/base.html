@@ -19,8 +19,12 @@
     <!-- Include a navigation menu -->
     <nav>
         <a href="/">Home</a>
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
+        {% if not session['username'] %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% else %}
+            <a href="/logout">Logout</a>
+        {% endif %}
         <a href="/movie_list">Movie List</a>
         <a href="/review_list">Review List</a>
     </nav>
@@ -29,6 +33,11 @@
     <main>
         {% block content %}
         Welcome to Rev Movies, a site where you can browse movies, their reviews, and register to post your own! <br> <br> Use the navigation menu above to get started with Rev Movies!
+        <br><br>
+        {% if session['username'] %}
+        <br>
+        <p>Hello {{ session['username'] }}</p>
+        {% endif %}
         {% endblock %}
         
     </main>
@@ -38,3 +47,4 @@
 
 </body>
 </html>
+
