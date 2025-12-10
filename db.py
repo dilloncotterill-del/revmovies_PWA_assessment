@@ -38,3 +38,40 @@ def CheckLogin(username, password):
 
     # If we get here, the username or password failed.
     return None
+
+
+def RegisterUser(username, password):
+
+    # Check if they gave us a username and password
+    if username is None or password is None:
+        return False
+
+    # Attempt to add them to the database
+    db = GetDB()
+    hash = generate_password_hash(password)
+    db.execute(
+        "INSERT INTO Users(username, password) VALUES(?, ?)",
+        (
+            username,
+            hash,
+        ),
+    )
+    db.commit()
+
+    return True
+
+
+def GetMovie(id):
+    db = GetDB()
+    movie = db.execute("SELECT * FROM Movies WHERE id=?", (id,)).fetchone()
+    db.close()
+    return movie
+
+
+def GetReviews(movie_id):
+    db = GetDB()
+    reviews = db.execute(
+        "SELECT * FROM Reviews WHERE movie_id=?", (movie_id,)
+    ).fetchall()
+    db.close()
+    return reviews

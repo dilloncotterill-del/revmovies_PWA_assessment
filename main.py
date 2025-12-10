@@ -37,8 +37,32 @@ def Logout():
 
 @app.route("/movie_list")
 def Movie_list():
-    movieData = db.GetAllMovies()
-    return render_template("movie_list.html", movies=movieData)
+    moviesData = db.GetAllMovies()
+    return render_template("movie_list.html", movies=moviesData)
+
+
+@app.route("/register", methods=["GET", "POST"])
+def Register():
+
+    # If they click the submit button, let's register
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+
+        # Try and add them to the DB
+        if db.RegisterUser(username, password):
+            # Success! Let's go to the homepage
+            return redirect("/")
+
+    return render_template("register.html")
+
+
+@app.route("/movie/<id>")
+def Movie(id):
+    movieData = db.GetMovie(id)
+    reviewsData = db.GetReviews(id)
+
+    return render_template("movie.html", movie=movieData, reviews=reviewsData)
 
 
 app.run(debug=True, port=5000)

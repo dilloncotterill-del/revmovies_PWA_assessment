@@ -74,6 +74,11 @@ select {
   box-sizing: border-box;
 }
 
+table {
+  border: solid;
+  border-style: double;
+}
+
 input[type="submit"] {
   width: 100%;
   background-color: #c4220c;

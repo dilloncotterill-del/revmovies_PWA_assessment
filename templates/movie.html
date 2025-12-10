@@ -9,9 +9,9 @@
 
     <title>RevMovies</title>
 
-    <link rel="stylesheet" href="static/css/home.css" />
-    <link rel="manifest" href="static/manifest.json" />
-    <link rel="icon" type="image/x-icon" href="static/images/favicon.png" />
+    <link rel="stylesheet" href="/static/css/home.css" />
+    <link rel="manifest" href="/static/manifest.json" />
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.png" />
   </head>
 
   <h1 class="banner">Rev Movies</h1>
@@ -29,34 +29,34 @@
     <a href="/review_list">Review List</a>
   </nav>
 
-  <body class="text">
-    Here is where you can view the full list of movies that are available to
-    view and review!
-  </body>
+  <h1>{{movie['movie_name']}}</h1>
+  <h2>{{movie['release_date']}} {{movie['genre']}}</h2>
+  <p>{{movie['movie_description']}}</p>
+  <h3>{{movie['movie_name']}} Reviews</h3>
 
   {% block content %}
 
   <table class="movie_table">
     <thead>
-      <th>movie_name</th>
-      <th>release_date</th>
-      <th>movie_description</th>
-      <th>genre</th>
+      <th>title</th>
+      <th>review date</th>
+      <th>rating</th>
+      <th>review</th>
     </thead>
 
     <tbody>
-      {%for movie in movies%}
+      {%for review in reviews%}
       <tr>
-        <td>
-          <a href="/movie/{{movie['id']}}">{{ movie['movie_name']}}</a>
-        </td>
-        <td>{{ movie['release_date']}}</td>
-        <td>{{ movie['movie_description']}}</td>
-        <td>{{ movie['genre']}}</td>
+        <td>{{ review['title']}}</td>
+        <td>{{ review['review_date']}}</td>
+        <td>{{ review['rating']}}</td>
+        <td>{{ review['review_text']}}</td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
+
+  <a href="/add"><button>Add guess</button></a>
 
   {% endblock %}
 </html>
