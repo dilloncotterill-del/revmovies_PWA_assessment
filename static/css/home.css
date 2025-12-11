@@ -17,6 +17,10 @@ body {
   font-size: 1rem;
 }
 
+.addmovie {
+  padding-bottom: 50px;
+}
+
 main {
   max-width: 1200px;
   margin: auto;

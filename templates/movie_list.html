@@ -1,9 +1,9 @@
 {% extends "base.html" %} {% block content %}
-
+<a href="/addmovie" class="addmovie"><button>Add movie</button></a>
 <body class="text">
   Here is where you can view the full list of movies that are available to view
   and review!
-  <br>
+  <br />
 </body>
 
 <table class="movie_table">
@@ -18,7 +18,9 @@
     {%for movie in movies%}
     <tr>
       <td>
-        <a href="/movie/{{movie['id']}}">{{ movie['movie_name']}}</a>
+        <a href="/movie/{{movie['id']}}"
+          ><button>{{ movie['movie_name']}}</button></a
+        >
       </td>
       <td>{{ movie['release_date']}}</td>
       <td>{{ movie['movie_description']}}</td>
@@ -27,7 +29,5 @@
     {% endfor %}
   </tbody>
 </table>
-
-<a href="/addmovie"><button>Add movie</button></a>
 
 {% endblock %}

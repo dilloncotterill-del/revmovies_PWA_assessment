@@ -117,8 +117,8 @@ def DeleteReview(id):
     return render_template("movie.html", movie=movieData, reviews=reviewsData)
 
 
-@app.route("/addmovie")
-def AddMovie(id):
+@app.route("/addmovie", methods=["GET", "POST"])
+def AddMovie():
 
     # Did they click submit?
     if request.method == "POST":
@@ -126,15 +126,13 @@ def AddMovie(id):
         release_date = request.form["release_date"]
         movie_description = request.form["movie_description"]
         genre = request.form["genre"]
-        id = session["id"]
         user_id = session["user_id"]
 
         # Send the data to add our new movie to the db
         db.AddMovie(movie_name, release_date, movie_description, genre)
 
-        movieData = db.GetMovie(id)
-
-        return render_template("movie.html", movie=movieData)
+        moviesData = db.GetAllMovies()
+        return render_template("movie_list.html", movies=moviesData)
 
     return render_template("addmovie.html")
 
