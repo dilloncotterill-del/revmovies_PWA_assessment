@@ -21,16 +21,16 @@
       <td>{{ review['rating']}}</td>
       <td>{{ review['review_text']}}</td>
       <td>
-        <a href="/edit/{{review['id']}}"><button>Edit review</button></a>
+        <a href="/editreview/{{review['id']}}"><button>Edit review</button></a>
       </td>
       <td>
-        <a href="/delete/{{review['id']}}"><button>Delete review</button></a>
+        <a href="/deletereview/{{review['id']}}"><button>Delete review</button></a>
       </td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
 
-<a href="/add/{{movie['id']}}"><button>Add review</button></a>
+<a href="/addreview/{{movie['id']}}"><button>Add review</button></a>
 
 {% endblock %}

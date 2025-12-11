@@ -136,3 +136,28 @@ def DeleteReview(id):
     db.commit()
 
     return True
+
+
+def AddMovie(movie_name, release_date, movie_description, genre):
+
+    if (
+        movie_name is None
+        or release_date is None
+        or movie_description is None
+        or genre is None
+    ):
+        return False
+
+    db = GetDB()
+    db.execute(
+        "INSERT INTO Movies(movie_name, release_date, movie_description, genre) VALUES (?, ?, ?, ?)",
+        (
+            movie_name,
+            release_date,
+            movie_description,
+            genre,
+        ),
+    )
+    db.commit()
+
+    return True

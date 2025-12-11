@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block content %}
+
+<h2>Add a movie</h2>
+
+<p>{{movie['movie_name']}}</p>
+
+<form action="/addmovie" method="post">
+  <label>Movie Name: </label>
+  <input type="text" name="movie_name" id="movie_name" />
+  <label> Release Date: </label>
+  <input type="date" name="release_date" id="release_date" />
+  <label>Movie Description: </label>
+  <input type="text" name="movie_description" id="movie_description" />
+  <label>genre: </label>
+  <input type="text" name="genre" id="genre" />
+  <input type="submit" value="Add Movie" />
+</form>
+{% endblock %}

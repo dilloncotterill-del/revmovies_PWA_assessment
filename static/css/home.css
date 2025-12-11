@@ -18,12 +18,12 @@ body {
 }
 
 main {
-  max-width: 900px;
+  max-width: 1200px;
   margin: auto;
   padding: 1rem;
   padding-top: 150px;
-  line-height: 1.5;
-  font-size: 29px;
+  line-height: 2.25;
+  font-size: 15px;
 }
 
 .banner {
@@ -39,6 +39,16 @@ nav {
   background-color: #4f4d4d;
   text-align: center;
   width: 600px;
+}
+
+th {
+  border: solid 2px;
+  color: darkred;
+}
+
+td {
+  border: solid 2px;
+  text-align: center;
 }
 
 nav a {

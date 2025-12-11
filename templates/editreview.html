@@ -2,7 +2,7 @@
 
 <h2>Add a review</h2>
 
-<form action="/edit/{{review['id']}}" method="post">
+<form action="/editreview/{{review['id']}}" method="post">
   <label>Movie: </label>
   <input type="text" name="movie" id="movie" value="{{movie['movie_name']}}" />
   <label>Title: </label>
@@ -28,6 +28,6 @@
     id="review_text"
     value="{{review['review_text']}}"
   />
-  <input type="submit" value="Add Review" />
+  <input type="submit" value="Edit Review" />
 </form>
 {% endblock %}
