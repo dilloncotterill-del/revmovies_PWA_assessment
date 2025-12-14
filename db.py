@@ -68,10 +68,10 @@ def GetMovie(id):
     return movie
 
 
-def GetReviews(movie_id):
+def GetReviews(id):
     db = GetDB()
     reviews = db.execute(
-        "SELECT * FROM Reviews WHERE movie_id=?", (movie_id,)
+        "SELECT Reviews.id as id, title, review_date, rating, review_text, movie_id, username FROM Users, Reviews WHERE Users.ID=Reviews.user_id;",
     ).fetchall()
     db.close()
     return reviews

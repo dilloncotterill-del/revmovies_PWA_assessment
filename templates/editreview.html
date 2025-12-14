@@ -1,10 +1,10 @@
 {% extends "base.html" %} {% block content %}
 
-<h2>Add a review</h2>
+<h2>Edit a review</h2>
 
 <form action="/editreview/{{review['id']}}" method="post">
   <label>Movie: </label>
-  <input type="text" name="movie" id="movie" value="{{movie['movie_name']}}" />
+  <h2>{{movie['movie_name']}}</h2>
   <label>Title: </label>
   <input type="text" name="title" id="title" value="{{review['title']}}" />
   <label> Review Date: </label>
@@ -20,7 +20,7 @@
     name="rating"
     id="rating"
     value="{{review['rating']}}"
-  />
+  /> <br>
   <label>Review Text:</label>
   <input
     type="text"

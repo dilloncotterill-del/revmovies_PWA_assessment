@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Volkhov:400,700&display=swap");
 
 * {
-  padding: 0;
-  margin: 0;
+  padding: 0px;
+  margin: 0px;
   box-sizing: border-box;
 }
 
@@ -17,10 +17,6 @@ body {
   font-size: 1rem;
 }
 
-.addmovie {
-  padding-bottom: 50px;
-}
-
 main {
   max-width: 1200px;
   margin: auto;
@@ -28,14 +24,6 @@ main {
   padding-top: 150px;
   line-height: 2.25;
   font-size: 15px;
-}
-
-.banner {
-  padding: 60px;
-  text-align: center;
-  background: #d82e2e;
-  color: white;
-  font-size: 3em;
 }
 
 nav {

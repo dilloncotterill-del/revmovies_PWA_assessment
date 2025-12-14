@@ -1,9 +1,9 @@
 {% extends "base.html" %} {% block content %}
 
-<h1>{{movie['movie_name']}}</h1>
+<h1 class="movie_name">{{movie['movie_name']}}</h1>
 <h2>{{movie['release_date']}} {{movie['genre']}}</h2>
-<p>{{movie['movie_description']}}</p>
-<h3>{{movie['movie_name']}} Reviews</h3>
+<p class="movie_body">{{movie['movie_description']}}</p> <br>
+<h2>{{movie['movie_name']}} Reviews</h2>
 
 <table class="movie_table">
   <thead>
@@ -11,26 +11,39 @@
     <th>review date</th>
     <th>rating</th>
     <th>review</th>
+    <th>username</th>
   </thead>
 
-  <tbody>
+  <tbody class=".review_table">
     {%for review in reviews%}
     <tr>
-      <td>{{ review['title']}}</td>
-      <td>{{ review['review_date']}}</td>
-      <td>{{ review['rating']}}</td>
-      <td>{{ review['review_text']}}</td>
-      <td>
-        <a href="/editreview/{{review['id']}}"><button>Edit review</button></a>
-      </td>
-      <td>
-        <a href="/deletereview/{{review['id']}}"><button>Delete review</button></a>
-      </td>
+      <td class="review_body">{{ review['title']}}</td>
+      <td class="review_body">{{ review['review_date']}}</td>
+      <td class="review_body">{{ review['rating']}}</td>
+      <td class="review_body">{{ review['review_text']}}</td>
+      <td>{{ review['username']}}</td>
+        <a href="/editreview/{{review['id']}}">
+          {% if session['username'] %}
+          <td>
+            <button>Edit review</button>
+          </td>
+          {% endif %}
+        <a href="/deletereview/{{review['id']}}">
+          {% if session['username'] %}
+          <td>
+            <button>Delete review</button>
+          </td>
+          {% endif %}
     </tr>
     {% endfor %}
   </tbody>
 </table>
 
-<a href="/addreview/{{movie['id']}}"><button>Add review</button></a>
+<a href="/addreview/{{movie['id']}}">
+  {% if session['username'] %}
+  <br />
+  <button>Add review</button>
+  {% endif %}</a
+>
 
 {% endblock %}

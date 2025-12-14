@@ -1,8 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Lexend:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bungee Spice:400,700&display=swap");
 
-h1 {
-  background: #ed2939;
-  font-family: "Lexend", sans-serif;
+.movie_name {
+  font-size: 40px;
+}
+
+.movie_body {
+  padding-top: 50px;
 }
 
 body {
@@ -11,4 +14,41 @@ body {
 
 .movie_table {
   border: 5px;
+}
+
+.movie_body {
+  padding: 10px;
+}
+
+.addmovie {
+  padding-bottom: 50px;
+  padding-right: 450px;
+}
+
+.review_table {
+  padding: 10px;
+}
+
+.banner {
+  padding: 60px;
+  text-align: center;
+  background: #d82e2e;
+  color: white;
+  font-size: 3em;
+}
+
+.movie_button {
+  width: 100%;
+}
+
+.text {
+  text-align: right;
+}
+
+.table_header {
+  text-align: center;
+}
+
+.movie_description {
+  text-align: left;
 }

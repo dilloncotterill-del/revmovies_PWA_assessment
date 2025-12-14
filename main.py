@@ -68,6 +68,9 @@ def Movie(id):
 @app.route("/addreview/<movie_id>", methods=["GET", "POST"])
 def AddReview(movie_id):
 
+    if session.get("user_id") == None:
+        return redirect("/")
+
     movieData = db.GetMovie(movie_id)
     # Did they click submit?
     if request.method == "POST":
@@ -89,6 +92,10 @@ def AddReview(movie_id):
 
 @app.route("/editreview/<id>", methods=["GET", "POST"])
 def EditReview(id):
+
+    if session.get("user_id") == None:
+        return redirect("/")
+
     reviewData = db.GetReview(id)
     movieData = db.GetMovie(reviewData["movie_id"])
 
@@ -108,6 +115,10 @@ def EditReview(id):
 
 @app.route("/deletereview/<id>")
 def DeleteReview(id):
+
+    if session.get("user_id") == None:
+        return redirect("/")
+
     reviewData = db.GetReview(id)
     movieData = db.GetMovie(reviewData["movie_id"])
 
@@ -119,6 +130,9 @@ def DeleteReview(id):
 
 @app.route("/addmovie", methods=["GET", "POST"])
 def AddMovie():
+
+    if session.get("user_id") == None:
+        return redirect("/")
 
     # Did they click submit?
     if request.method == "POST":
