@@ -2,7 +2,8 @@
 
 <h1 class="movie_name">{{movie['movie_name']}}</h1>
 <h2>{{movie['release_date']}} {{movie['genre']}}</h2>
-<p class="movie_body">{{movie['movie_description']}}</p> <br>
+<p class="movie_body">{{movie['movie_description']}}</p>
+<br />
 <h2>{{movie['movie_name']}} Reviews</h2>
 
 <table class="movie_table">
@@ -22,28 +23,27 @@
       <td class="review_body">{{ review['rating']}}</td>
       <td class="review_body">{{ review['review_text']}}</td>
       <td>{{ review['username']}}</td>
+      {% if session['username'] %}
+      <td>
         <a href="/editreview/{{review['id']}}">
-          {% if session['username'] %}
-          <td>
-            <button>Edit review</button>
-          </td>
-          {% endif %}
+          <button>Edit review</button>
+        </a>
+      </td>
+      {% endif %} {% if session['username'] %}
+      <td>
         <a href="/deletereview/{{review['id']}}">
-          {% if session['username'] %}
-          <td>
-            <button>Delete review</button>
-          </td>
-          {% endif %}
+          <button>Delete review</button>
+        </a>
+      </td>
+      {% endif %}
     </tr>
     {% endfor %}
   </tbody>
 </table>
 
+{% if session['username'] %}
+<br />
 <a href="/addreview/{{movie['id']}}">
-  {% if session['username'] %}
-  <br />
   <button>Add review</button>
-  {% endif %}</a
->
-
-{% endblock %}
+</a>
+{% endif %} {% endblock %}

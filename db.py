@@ -71,7 +71,7 @@ def GetMovie(id):
 def GetReviews(id):
     db = GetDB()
     reviews = db.execute(
-        "SELECT Reviews.id as id, title, review_date, rating, review_text, movie_id, username FROM Users, Reviews WHERE Users.ID=Reviews.user_id;",
+        "SELECT Reviews.id as id, title, review_date, rating, review_text, movie_id, username FROM Users JOIN Reviews ON Users.ID=Reviews.user_id;",
     ).fetchall()
     db.close()
     return reviews

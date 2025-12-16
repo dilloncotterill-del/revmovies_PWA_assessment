@@ -1,40 +1,42 @@
 {% extends "base.html" %} {% block content %}
 
+{% if session['username'] %}
+<br />
 <a href="/addmovie" class="addmovie">
-  {% if session['username'] %}
-  <br />
   <button>Add movie</button>
-  {% endif %}
+</a> 
+{% endif %}
+
+  <body class="text">
+    Here is where you can view the full list of movies that are available to
+    view and review!
+    <br />
+    <br />
+  </body>
+
+  <table class="movie_table">
+    <thead>
+      <th class="table_header">movie_name</th>
+      <th class="table_header">release_date</th>
+      <th class="table_header">movie_description</th>
+      <th class="table_header">genre</th>
+    </thead>
+
+    <tbody class="movie_body">
+      {%for movie in movies%}
+      <tr>
+        <td>
+          <a href="/movie/{{movie['id']}}"
+            ><button class="movie_button">{{ movie['movie_name']}}</button></a
+          >
+        </td>
+        <td>{{ movie['release_date']}}</td>
+        <td class="movie_description">{{ movie['movie_description']}}</td>
+        <td>{{ movie['genre']}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% endblock %}
 </a>
-<body class="text">
-  Here is where you can view the full list of movies that are available to view
-  and review!
-  <br />
-  <br />
-</body>
-
-<table class="movie_table">
-  <thead>
-    <th class="table_header">movie_name</th>
-    <th class="table_header">release_date</th>
-    <th class="table_header">movie_description</th>
-    <th class="table_header">genre</th>
-  </thead>
-
-  <tbody class="movie_body">
-    {%for movie in movies%}
-    <tr>
-      <td>
-        <a href="/movie/{{movie['id']}}"
-          ><button class="movie_button">{{ movie['movie_name']}}</button></a
-        >
-      </td>
-      <td>{{ movie['release_date']}}</td>
-      <td class="movie_description">{{ movie['movie_description']}}</td>
-      <td>{{ movie['genre']}}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-
-{% endblock %}

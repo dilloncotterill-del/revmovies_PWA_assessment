@@ -36,6 +36,4 @@
 --                     ('Witty and sentimental', '2025-12-03', '8', 'This film really touched my heart in the best way possible. The characters felt so real and perfect that it didnt even feel like a film.', '4', '2'),
 --                     ('conseqences of societal rejection', '2025-12-03', '9', 'Joker underlines the impact that the widespread shunning of society can have on an individuals mind and character. It portrays Arthurs consquential descent into paranoia and madness at the hands of rejecting societies.', '3', '4');
 
-SELECT Reviews.id as id, title, review_date, rating, review_text, movie_id, username FROM Users, Reviews WHERE Users.ID=Reviews.user_id;
-
-SELECT * FROM Reviews
+SELECT Reviews.id as id, title, review_date, rating, review_text, movie_id, username FROM Users JOIN Reviews ON Users.ID=Reviews.user_id;
