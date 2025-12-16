@@ -1,0 +1,23 @@
+{
+  "name": "RevMovies",
+  "short_name": "RM",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#d82e2e",
+  "theme_color": "#fdfdfd",
+  "orientation": "landscape-primary",
+  "icons": [
+    {
+      "src": "/static/icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/static/icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ]
+}
